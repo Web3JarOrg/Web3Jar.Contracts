@@ -10,7 +10,7 @@
     "func-visibility": ["warn", { "ignoreConstructors": true }],
     "func-param-name-mixedcase": "error",
     "modifier-name-mixedcase": "error",
-    "private-vars-leading-underscore": "error",
+    "private-vars-leading-underscore": false,
     "var-name-mixedcase": "error",
     "imports-on-top": "error"
   }

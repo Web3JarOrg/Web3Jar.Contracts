@@ -1,3 +1,5 @@
-export type LockParamsType = {
-  unlockTime: number;
+export type Web3JarParamsType = {
+  target: number;
+  owner: string;
+  factory: string;
 };

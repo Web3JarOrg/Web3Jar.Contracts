@@ -29,6 +29,7 @@ const config: HardhatUserConfig = {
   networks: {
     main: getNetworkConfig("main"),
     goerli: getNetworkConfig("goerli"),
+    testnet: getNetworkConfig("testnet"),
   },
   contractSizer: {
     runOnCompile: OPTIMIZER,

@@ -7,7 +7,7 @@ export type EnvVars = {
   ETHERSCAN_KEY?: string;
 };
 
-export type Networks = "goerli" | "main";
+export type Networks = "main" | "goerli" | "testnet";
 
 export type NetworkConfig = {
   url: string;

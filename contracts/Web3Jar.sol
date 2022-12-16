@@ -4,13 +4,23 @@ pragma solidity ^0.8.9;
 contract Web3Jar {
     uint256 public target;
 
+    string public jarName;
+    string public description;
+
     address private owner;
 
     bool public isActive = true;
 
-    constructor(uint256 _target, address _owner) {
-        target = _target * 10**18;
+    constructor(
+        uint256 _target,
+        address _owner,
+        string memory _jarName,
+        string memory _description
+    ) {
+        target = _target * 10 ** 18;
         owner = _owner;
+        jarName = _jarName;
+        description = _description;
     }
 
     function donate() public payable onlyIfActive {

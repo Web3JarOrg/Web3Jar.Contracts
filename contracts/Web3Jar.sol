@@ -7,7 +7,7 @@ contract Web3Jar {
     string public jarName;
     string public description;
 
-    address private owner;
+    address public owner;
 
     bool public isActive = true;
 

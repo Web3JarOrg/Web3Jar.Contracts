@@ -23,6 +23,9 @@ task(TaskNames.DEPLOY_JAR)
   .addParam("target", "The amount to be raised", 0, types.int)
   .addParam("owner", "Owner address", "", types.string)
   .addParam("factory", "Factory contract address", "", types.string)
+  .addParam("jarName", "Jar name", "", types.string)
+  .addParam("description", "Jar description", "", types.string)
+
   .setAction(async (params: Web3JarParamsType, hre: HRE) => {
     const [signer] = await hre.ethers.getSigners();
     log.preDeploy("Web3Jar");
@@ -31,10 +34,17 @@ task(TaskNames.DEPLOY_JAR)
     const owner = params.owner || signer.address;
     const factoryAddr =
       params.factory || (await hre.run(TaskNames.DEPLOY_FACTORY));
+    const jarName = params.jarName || "My jar";
+    const description = params.description || "Jar description";
 
     const web3JarFactory = Web3JarFactory__factory.connect(factoryAddr, signer);
 
-    const deploy = await web3JarFactory.createJar(target, owner);
+    const deploy = await web3JarFactory.createJar(
+      target,
+      owner,
+      jarName,
+      description
+    );
     await deploy.wait();
 
     const web3JarAddr = await web3JarFactory
